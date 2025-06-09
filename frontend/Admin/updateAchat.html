@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admininstrative | Purshase | Update Purshase</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+
+
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-link">
+                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">Administrative</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block" id="usernameA">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item menu-open">
+                            <a href="index.html" class="nav-link ">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Dashboard
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="produit.html" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Product
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="stock.html" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Stock
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="client.html" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Client
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="contrat.html" class="nav-link">
+                                <i class="nav-icon fas fa-file-contract"></i>
+                                <p>
+                                    Contract
+
+                                </p>
+                            </a>
+
+                        <li class="nav-item">
+                            <a href="achat.html" class="nav-link active">
+                                <i class="nav-icon fas fa-shopping-cart"></i>
+                                <p>
+                                    Purshase
+
+                                </p>
+                            </a>
+
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a href="paiement.html" class="nav-link ">
+                                <i class="nav-icon fas fa-credit-card"></i>
+                                <p>
+                                    Payment
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <br>
+
+                        <li class="nav-item">
+                            <a href="admin.html" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Admin
+
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a onclick="logout()" class="nav-link">
+                                <i class="nav-icon fas fa-lock"></i>
+                                <p>
+                                    Log Out
+
+                                </p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Update Purshase </h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Update Purshase</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <!-- left column -->
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
+
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form onsubmit="return false">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="idProduit">Product Id</label>
+                                            <select class="form-control" id="idProduit">
+                                                <option>Select Product</option>
+                                            </select>
+                                            <span id="idProduitError" style="color: red"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="quantiteProduit">Product Quantity</label>
+                                            <input type="text" class="form-control" id="quantiteProduit"
+                                                placeholder=" Quantité Produit" required>
+                                            <span style="color: red;" id="quantiteProduitError"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="dateAchat">Date </label>
+                                            <input type="date" class="form-control" id="dateAchat"
+                                                placeholder=" date d'achat" required>
+                                            <span style="color: red;" id="dateAchatError"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="montantAchat">Amount</label>
+                                            <input type="number" class="form-control" id="montantAchat"
+                                                placeholder="Montant" required>
+                                            <span style="color: red;" id="montantAchatError"></span>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                    <div class="card-footer">
+                                        <button type="submit" onclick="verif()" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2024 <a href="https://chaabengroup.com">chaabentechnologygroup</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+        var request7 = new XMLHttpRequest();
+        request7.open("GET", "Http://localhost:3000/produits", true);
+        request7.onload = function () {
+            var data7 = JSON.parse(this.response);
+            var select = document.getElementById("idProduit");
+            data7.forEach((i) => {
+                var option = document.createElement("option");
+                option.text = i.nom;
+                option.value = i._id;
+                select.options.add(option, 1);
+                var cc = document.createElement("hr");
+                select.appendChild(cc);
+            });
+        }
+        request7.send();
+    </script>
+    <script>
+        var urlString = window.location.href;
+        var urlParams = new URL(urlString);
+        var id = urlParams.searchParams.get("id");
+
+
+
+        var url = "http://localhost:3000/achats/" + id;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+
+        xhr.onload = function () {
+            var achat = JSON.parse(xhr.responseText);
+            console.log(achat);
+            if (xhr.readyState == 4 && xhr.status == "200") {
+                document.getElementById("idProduit").value = achat.idProduit;
+                document.getElementById("quantiteProduit").value = achat.quantiteProduit;
+                document.getElementById("dateAchat").value = achat.dateAchat;
+                document.getElementById("montantAchat").value = achat.montantAchat;
+            } else {
+                console.log("error");
+            }
+        };
+
+        xhr.send(null);
+    </script>
+    <script>
+        function verif() {
+            var j = 0;
+            var idProduit = document.getElementById("idProduit").value;
+            var quantiteProduit = document.getElementById("quantiteProduit").value;
+            var dateAchat = document.getElementById("dateAchat").value;
+            var montantAchat = document.getElementById("montantAchat").value;
+
+
+            if (!idProduit) {
+                document.getElementById("idProduitError").innerHTML = "Invalid Product Id";
+                j++;
+            } else {
+                document.getElementById("idProduitError").innerHTML = "";
+            }
+
+
+
+            if (!quantiteProduit) {
+                document.getElementById("quantiteProduitError").innerHTML = "Invalid Product Quantity";
+                j++;
+            } else {
+                document.getElementById("quantiteProduitError").innerHTML = "";
+            }
+            if (!dateAchat) {
+                document.getElementById("dateAchatError").innerHTML = "Invalid Date";
+                j++;
+            } else {
+                document.getElementById("dateAchatError").innerHTML = "";
+            }
+            if (!montantAchat) {
+                document.getElementById("montantAchatError").innerHTML = "Invalid Amount";
+                j++;
+            } else {
+                document.getElementById("montantAchatError").innerHTML = "";
+            }
+            if (j == 0) {
+                update();
+            }
+        }
+        function update() {
+            var url = "http://127.0.0.1:3000/achats/" + id;
+
+            var data = {};
+            data.idProduit = document.getElementById("idProduit").value;
+            data.quantiteProduit = document.getElementById("quantiteProduit").value;
+            data.dateAchat = document.getElementById("dateAchat").value;
+            data.montantAchat = document.getElementById("montantAchat").value;
+
+
+            var json = JSON.stringify(data);
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", url, true);
+            xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+            xhr.onload = function () {
+                var achats = JSON.parse(xhr.responseText);
+                console.log(achats);
+
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    alert("Purshase updated");
+                    location.replace("achat.html");
+                } else {
+                    alert(achats.message);
+                    console.table(achats);
+                }
+            };
+            xhr.send(json);
+        }
+    </script>
+    <script>
+        document.getElementById("usernameA").innerHTML = localStorage.getItem("usernameA");
+        if (!localstorage.getItem(idA)) {
+            location.replace("login.html");
+        }
+        function logout() {
+            var d = window.confirm("want to Log Out !");
+            if (d == true) {
+                localStorage.clear();
+                location.replace("login.html");
+            }
+        }
+    </script>
+</body>
+
+</html>

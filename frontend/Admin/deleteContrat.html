@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Space | contracts | Delete Contract</title>
+</head>
+
+<body>
+    <script>
+        var d = window.confirm("Want to delete!");
+        if (d == true) {
+            var urlString = window.location.href;
+            var urlParams = new URL(urlString);
+            var contractId = urlParams.searchParams.get("id");
+
+            var getContractUrl = "http://localhost:3000/contrats/" + contractId;
+            var xhrGetContract = new XMLHttpRequest();
+            xhrGetContract.open("GET", getContractUrl, true);
+            xhrGetContract.onload = function () {
+                if (xhrGetContract.readyState == 4 && xhrGetContract.status == 200) {
+                    var contrats = JSON.parse(xhrGetContract.responseText);
+                    var productId = contrats.idProduit;
+
+
+                    var getProductUrl = "http://localhost:3000/produits/" + productId;
+                    var xhrGetProduct = new XMLHttpRequest();
+                    xhrGetProduct.open("GET", getProductUrl, true);
+                    xhrGetProduct.onload = function () {
+                        if (xhrGetProduct.readyState == 4 && xhrGetProduct.status == 200) {
+                            var produit = JSON.parse(xhrGetProduct.responseText);
+                            var newStock = parseInt(produit.quantite) + 1;
+
+                            var updateData = {
+                                quantite: newStock
+                            };
+
+                            var updateProductUrl = "http://localhost:3000/produits/" + productId;
+                            var xhrUpdateProduct = new XMLHttpRequest();
+                            xhrUpdateProduct.open("PUT", updateProductUrl, true);
+                            xhrUpdateProduct.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                            xhrUpdateProduct.onload = function () {
+                                if (xhrUpdateProduct.readyState == 4 && xhrUpdateProduct.status === 200) {
+
+                                    var deleteUrl = "http://localhost:3000/contrats/" + contractId;
+                                    var xhrDeleteContract = new XMLHttpRequest();
+                                    xhrDeleteContract.open("DELETE", deleteUrl, true);
+                                    xhrDeleteContract.onload = function () {
+                                        if (xhrDeleteContract.readyState == 4 && xhrDeleteContract.status === 200) {
+                                            alert("Contract and product stock updated successfully.");
+                                            location.replace("contrat.html");
+                                        } else {
+                                            alert("Error deleting contract");
+                                        }
+                                    };
+                                    xhrDeleteContract.send(null);
+                                } else {
+                                    alert("Failed to update product stock");
+
+                                }
+                            };
+                            xhrUpdateProduct.send(JSON.stringify(updateData));
+                        } else {
+                            alert("Failed to get product details");
+                        }
+                    };
+                    xhrGetProduct.send();
+                } else {
+                    alert("Failed to get contract details");
+                }
+            };
+            xhrGetContract.send(null);
+        } else {
+            location.replace("contrat.html");
+        }
+    </script>
+
+
+</body>
+
+</html>

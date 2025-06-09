@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | Paiement | updatePaiement</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+
+
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-link">
+                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">Espace administrative</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block" id="usernameA">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item menu-open">
+                            <a href="index.html" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="produit.html" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Product
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="stock.html" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Stock
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="client.html" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Client
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="contrat.html" class="nav-link">
+                                <i class="nav-icon fas fa-file-contract"></i>
+                                <p>
+                                    Contract
+
+                                </p>
+                            </a>
+
+                        <li class="nav-item">
+                            <a href="achat.html" class="nav-link">
+                                <i class="nav-icon fas fa-shopping-cart"></i>
+                                <p>
+                                    Purshase
+
+                                </p>
+                            </a>
+
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a href="paiement.html" class="nav-link active">
+                                <i class="nav-icon fas fa-credit-card"></i>
+                                <p>
+                                    Payment
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <br>
+
+                        <li class="nav-item">
+                            <a href="admin.html" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Admin
+
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a onclick="logout()" class="nav-link">
+                                <i class="nav-icon fas fa-lock"></i>
+                                <p>
+                                    Log Out
+
+                                </p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Update Payment </h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Update Payment </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <!-- left column -->
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
+
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form onsubmit="return false">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="idClient">Client Id</label>
+                                            <select class="form-control" id="idClient">
+                                                <option>Select Client</option>
+                                            </select>
+                                            <span id="idClientError" style="color: red"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="idContrat">Contract Id</label>
+                                            <select class="form-control" id="idContrat">
+                                                <option>Select Contract</option>
+                                            </select>
+                                            <span id="idContratError" style="color: red"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="numRecu">Receipt Number</label>
+                                            <input type="text" class="form-control" id="numRecu"
+                                                placeholder="Numéro Reçu" required>
+                                            <span id="numRecuError" style="color: red;"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nomAgent">Agent Name</label>
+                                            <input type="text" class="form-control" id="nomAgent"
+                                                placeholder=" Nom Agent" required>
+                                            <span id="nomAgentError" style="color: red;"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="date">Date</label>
+                                            <input type="datePaiement" class="form-control" id="datePaiement"
+                                                placeholder="Date De Paiement" required>
+                                            <span id="datePaiementError" style="color: red;"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="montantPaye">Amount</label>
+                                            <input type="number" class="form-control" id="montantPaye"
+                                                placeholder="Montant payé" required>
+                                            <span id="montantPayeError" style="color: red;"></span>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                    <div class="card-footer">
+                                        <button type="submit" onclick="verif()" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2024 <a href="https://chaabengroup.com">chaabentechnologygroup</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+        var request8 = new XMLHttpRequest();
+        request8.open("GET", "Http://localhost:3000/clients", true);
+        request8.onload = function () {
+            var data8 = JSON.parse(this.response);
+            var select = document.getElementById("idClient");
+            data8.forEach((i) => {
+                var option = document.createElement("option");
+                option.text = i.prenom + ` ` + i.nom;
+                option.value = i._id;
+                select.options.add(option, 1);
+                var cc = document.createElement("hr");
+                select.appendChild(cc);
+            });
+        }
+        request8.send();
+    </script>
+    <script>
+        var request9 = new XMLHttpRequest();
+        request9.open("GET", "Http://localhost:3000/contrats", true);
+        request9.onload = function () {
+            var data9 = JSON.parse(this.response);
+            var select = document.getElementById("idContrat");
+            data9.forEach((i) => {
+                var option = document.createElement("option");
+                option.text = i.numContrat;
+                option.value = i._id;
+                select.options.add(option, 1);
+                var cc = document.createElement("hr");
+                select.appendChild(cc);
+            });
+        }
+        request9.send();
+    </script>
+    <script>
+        var urlString = window.location.href;
+        var urlParams = new URL(urlString);
+        var id = urlParams.searchParams.get("id");
+
+
+
+        var url = "http://localhost:3000/paiements/" + id;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+
+        xhr.onload = function () {
+            var paiement = JSON.parse(xhr.responseText);
+            console.log(paiement);
+            if (xhr.readyState == 4 && xhr.status == "200") {
+                document.getElementById("idClient").value = paiement.idClient;
+                document.getElementById("idContrat").value = paiement.idContrat;
+                document.getElementById("numRecu").value = paiement.numRecu;
+                document.getElementById("nomAgent").value = paiement.nomAgent;
+                document.getElementById("datePaiement").value = paiement.datePaiement;
+                document.getElementById("montantPaye").value = paiement.montantPaye;
+
+
+            } else {
+                console.log("error");
+            }
+        };
+
+        xhr.send(null);
+    </script>
+    <script>
+        function verif() {
+            var j = 0;
+            var idClient = document.getElementById("idClient").value;
+            var idContrat = document.getElementById("idContrat").value;
+            var numRecu = document.getElementById("numRecu").value;
+            var nomAgent = document.getElementById("nomAgent").value;
+            var datePaiement = document.getElementById("datePaiement").value;
+            var montantPaye = document.getElementById("montantPaye").value;
+            if (!idClient) {
+                document.getElementById("idClientError").innerHTML = "Invalid Client Id"
+                j++;
+            }
+            else {
+                document.getElementById("idClientError").innerHTML = "";
+            }
+            if (!idContrat) {
+                document.getElementById("idContratError").innerHTML = "Invalid Contract Id"
+                j++;
+            }
+            else {
+                document.getElementById("idContratError").innerHTML = "";
+            }
+            if (!numRecu) {
+                document.getElementById("numRecuError").innerHTML = "Invalid Receipt Number"
+                j++;
+            }
+            else {
+                document.getElementById("numRecuError").innerHTML = "";
+            }
+            if (!nomAgent) {
+                document.getElementById("nomAgentError").innerHTML = "Invalid Agent Name"
+                j++;
+            }
+            else {
+                document.getElementById("nomAgentError").innerHTML = "";
+            }
+            if (!montantPaye) {
+                document.getElementById("montantPayeError").innerHTML = "Invalid Amount"
+                j++;
+            }
+            else {
+                document.getElementById("montantPayeError").innerHTML = "";
+            }
+            if (j == 0) {
+                update();
+            }
+        }
+        function update() {
+            var url = "Http://localhost:3000/paiements/" + id;
+            var data = {};
+
+            data.idClient = document.getElementById("idClient").value;
+            data.idContrat = document.getElementById("idContrat").value;
+            data.numRecu = document.getElementById("numRecu").value;
+            data.nomAgent = document.getElementById("nomAgent").value;
+            data.datePaiement = document.getElementById("datePaiement").value;
+            data.montantPaye = document.getElementById("montantPaye").value;
+
+            var json = JSON.stringify(data);
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", url, true);
+            xhr.setRequestHeader("content-type", "application/json; charset=utf-8");
+            xhr.onload = function () {
+
+                var paiements = JSON.parse(xhr.responseText);
+
+                console.log(paiements);
+
+                if (xhr.readyState == 4 && xhr.status == "200") {
+
+                    alert("Payment updated");
+                    location.replace("paiement.html");
+                }
+                else {
+
+                    alert(paiements.message);
+                    console.table(paiements);
+                }
+            };
+
+            xhr.send(json);
+        }
+    </script>
+    <script>
+        document.getElementById("usernameA").innerHTML = localStorage.getItem("usernameA");
+        if (!localstorage.getItem(idA)) {
+            location.replace("login.html");
+        }
+        function logout() {
+            var d = window.confirm("want to Log Out !");
+            if (d == true) {
+                localStorage.clear();
+                location.replace("login.html");
+            }
+        }
+    </script>
+</body>
+
+</html>

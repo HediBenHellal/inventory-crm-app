@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Espace Administratif | Se connecter</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('dist/img/photo4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: white;
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #f1f1f1;
+        }
+
+        .login-box .card-header {
+            margin-bottom: 20px;
+        }
+
+        .login-box a {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-box p {
+            color: #dcdcdc;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ffffff;
+        }
+
+        .input-group .email {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: white;
+            opacity: 0.7;
+        }
+
+        .input-group .show-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: white;
+            opacity: 0.7;
+        }
+
+        button {
+            width: 40%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background-color: #161411;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <i class="fas fa-users" class="usersIcon"></i>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
+                <form onsubmit="return false">
+                    <div class="input-group mb-3">
+                        <input type="email" id="email" class="form-control" placeholder="Adresse Mail" required
+                            autocomplete="off">
+                        <i class="fas fa-envelope email " id="email"></i>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" id="password" class="form-control" placeholder="Mot De Passe" required>
+                        <i class="fas fa-eye show-password" id="show-password" onclick="showPW()"></i>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" onclick="login()">Se connecter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
+    <script>
+        function showPW() {
+            var password = document.getElementById("password");
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        }
+    </script>
+    <script>
+        function login() {
+            var url = "http://localhost:3000/admins";
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.setRequestHeader("content-type", "application/json; charset = utf-8");
+            xhr.onload = function () {
+                var admins = JSON.parse(xhr.responseText);
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    access = false;
+                    for (let i = 0; i < admins.length; i++) {
+
+                        if (admins[i].email == email && admins[i].password == password) {
+                            access = true;
+                            localStorage.setItem("idA", admins[i]._id);
+                            localStorage.setItem("usernameA", admins[i].username);
+                            localStorage.setItem("statutA", admins[i].statut);
+                        }
+                    }
+                    if (access) {
+                        alert("welcome admin");
+                        location.replace("index.html");
+                    } else {
+                        alert("invalid email or password")
+                    }
+
+                } else {
+                    alert("error");
+                }
+
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Space | Payments | Delete Payment</title>
+</head>
+
+<body>
+    <script>
+        var d = window.confirm("Are you sure you want to delete this payment?");
+        if (d == true) {
+            var urlString = window.location.href;
+            var urlParams = new URL(urlString);
+            var paiementId = urlParams.searchParams.get("id");
+
+            var getPaiementUrl = "http://localhost:3000/paiements/" + paiementId;
+            var xhrGetPaiement = new XMLHttpRequest();
+            xhrGetPaiement.open("GET", getPaiementUrl, true);
+            xhrGetPaiement.onload = function () {
+                if (xhrGetPaiement.readyState == 4 && xhrGetPaiement.status == 200) {
+                    var paiement = JSON.parse(xhrGetPaiement.responseText);
+                    var contratId = paiement.idContrat;
+                    var montantPaye = paiement.montantPaye;
+
+                    var getContractUrl = "http://localhost:3000/contrats/" + contratId;
+                    var xhrGetContract = new XMLHttpRequest();
+                    xhrGetContract.open("GET", getContractUrl, true);
+                    xhrGetContract.onload = function () {
+                        if (xhrGetContract.readyState == 4 && xhrGetContract.status == 200) {
+                            var contrat = JSON.parse(xhrGetContract.responseText);
+                            var newPrixReste = parseInt(contrat.prixReste) + parseInt(montantPaye);
+                            var newNbPaiement = parseInt(contrat.nbPaiement) - 1;
+
+                            var updateData = {
+                                idClient: contrat.idClient,
+                                idProduit: contrat.idProduit,
+                                numContrat: contrat.numContrat,
+                                nomVendeur: contrat.nomVendeur,
+                                dateContrat: contrat.dateContrat,
+                                prixVente: contrat.prixVente,
+                                avance: contrat.avance,
+                                prixReste: newPrixReste,
+                                dureePaiement: contrat.dureePaiement,
+                                nbPaiement: newNbPaiement,
+                            };
+                            var contractJson = JSON.stringify(updateData);
+
+                            var xhrUpdateContract = new XMLHttpRequest();
+                            xhrUpdateContract.open("PUT", getContractUrl, true);
+                            xhrUpdateContract.setRequestHeader("Content-type", "application/json; charset=utf-8");
+                            xhrUpdateContract.onload = function () {
+                                if (xhrUpdateContract.readyState == 4 && xhrUpdateContract.status == 200) {
+                                    var deletePaiementUrl = "http://localhost:3000/paiements/" + paiementId;
+                                    var xhrDeletePaiement = new XMLHttpRequest();
+                                    xhrDeletePaiement.open("DELETE", deletePaiementUrl, true);
+                                    xhrDeletePaiement.onload = function () {
+                                        if (xhrDeletePaiement.readyState == 4 && xhrDeletePaiement.status == 200) {
+                                            alert("Payment deleted and contract updated successfully.");
+                                            location.replace("paiement.html");
+                                        } else {
+                                            alert("Error deleting payment");
+                                        }
+                                    };
+                                    xhrDeletePaiement.send(null);
+                                } else {
+                                    alert("Failed to update contract");
+                                }
+                            };
+                            xhrUpdateContract.send(contractJson);
+                        } else {
+                            alert("Failed to get contract details");
+                        }
+                    };
+                    xhrGetContract.send();
+                } else {
+                    alert("Failed to get payment details");
+                }
+            };
+            xhrGetPaiement.send(null);
+        } else {
+            location.replace("paiement.html");
+        }
+    </script>
+</body>
+
+</html>
