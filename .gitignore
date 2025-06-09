@@ -1,0 +1,24 @@
+"/frontend/Admin/dist/" 
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Production build
+/frontend/Admin/dist/
+
+/backend/dist/
+
+/backend/node_modules/
+/frontend/Admin/node_modules/
+
+/backend/.env
+/frontend/Admin/.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
